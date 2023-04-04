@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+      .calculator {
+        display: flex;
+        flex-wrap: wrap; /* 요소들을 여러 줄에 걸쳐서 배치 */
+        justify-content: center; /* 가운데 정렬 */
+        width: 350px;
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+      .calculator button {
+        width: 75px;
+        height: 50px;
+        margin: 5px;
+        font-size: 24px;
+      }
+
+      #inputField {
+        margin-top: 20px;
+        height: 30px;
+        width: 400px;
+        font-size: 20px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>계산기 만들기</h3>
+    <hr>
+    <input type="text" id="inputField" disabled>
+
+    <div class="calculator">
+      <button onclick="backspace()">back</button>
+      <button onclick="clearInput()">CE</button>
+      <button onclick="clearInput()">C</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="addToInput('7')">7</button>
+      <button onclick="addToInput('8')">8</button>
+      <button onclick="addToInput('9')">9</button>
+      <button onclick="addToInput('/')">/</button>
+      <button onclick="addToInput('4')">4</button>
+      <button onclick="addToInput('5')">5</button>
+      <button onclick="addToInput('6')">6</button>
+      <button onclick="addToInput('*')">*</button>
+      <button onclick="addToInput('1')">1</button>
+      <button onclick="addToInput('2')">2</button>
+      <button onclick="addToInput('3')">3</button>
+      <button onclick="addToInput('-')">-</button>
+      <button onclick="addToInput('0')">0</button>
+      <button onclick="addToInput('.')">.</button>
+      <button onclick="addToInput('+')">+</button>
+      <button>n</button>
+    </div>
+
+    <script>
+      function addToInput(value) {
+        document.getElementById("inputField").value += value;
+      }
+      
+      function clearInput() {
+        document.getElementById("inputField").value = "";
+      }
+      
+      function calculate() {
+        var input = document.getElementById("inputField").value;
+        var result = eval(input);
+        document.getElementById("inputField").value = result;
+      }
+
+      function backspace() {
+      var input = document.getElementById("inputField").value;
+      document.getElementById("inputField").value = input.substring(0, input.length - 1);
+    }
+    </script>
+  </body>
+</html>
